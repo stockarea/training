@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html>
 <body>
-<p id="num"></P>
+<p id="demo"></P>
 <script>
-var words,text,name,i;
- name=["ajay","sam","karthik","peter"];
-words=name.length;
-text="<ul>";
-for(i=0;i < words;i++){
-    text +="<li>"+name[i]+"</li>";
-}
-text +="</ul>";
-document.getElementById("num").innerHTML=text;
+var points=[20,10,100,40,50];
+points.sort(function(a,b){return b-a});
+document.getElementById("demo").innerHTML=points[0];
 </script>
 </body>
 </html>
