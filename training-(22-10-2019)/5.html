@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        #container{
+            width:400px;
+            height:400px;
+            position:relative;
+            background: blue;
+            
+        }
+        #animate{
+            width:40px;
+            height:40px;
+            position:absolute;
+
+        }
+    </style>
+    <body>
+        <button onclick="mouse()">click me</button>
+        <div id="container">
+            <div id="animate">balaji</div>
+             </div>
+             <script>
+                 function mouse()
+                 {
+                     var x=document.getElementById("animate");
+                     var pos=0;
+                     var id=setInterval(frame,5);
+                     function frame()
+                     {
+                         if (pos==350){
+                             clearInterval(id);
+                         }
+                         else{
+                             pos++;
+                             x.stlye.top=pos +"px";
+                             x.style.left=pos+"px";
+                         }
+                     }
+
+                 }
+             </script>
+
+    </body>
+</html>

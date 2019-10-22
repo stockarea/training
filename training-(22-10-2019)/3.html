@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <form id="hello">
+            <input type="text" name="form1">
+            <input type="text" name="form2">
+            <button onclick="Function()">submit</button>
+        </form>
+        <p id="hi"></p>
+        <script>
+            function Function()
+            {
+                var x=document.forms["hello"];
+                var text="";
+                var i;
+                for(i=0;i<x.length;i++)
+                {
+                    text +=x.elements[i].value+"<br>";
+                }
+                document.getElementById("hi").innerHTML=text;
+            }
+
+        </script>
+    </body>
+</html>

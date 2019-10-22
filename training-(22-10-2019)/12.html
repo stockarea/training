@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        #my{
+            background-color: green;
+            height:20px;
+            width:200px;
+        }
+        #my1{
+            background-color: blue;
+            height: 20px;
+            width: 200px;
+        }
+    </style>
+    <body>
+        <div id="my">
+
+        </div>
+        <div id="my1"></div>
+        <script>
+            document.getElementById("my").addEventListener("mouseover",function(){alert("u touched green")},true);
+            document.getElementById("my1").addEventListener("mouseover",function(){alert("u touched the blue")},true);
+        </script>
+    </body>
+</html>

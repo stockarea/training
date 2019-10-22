@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <button id="demo">tryit</button>
+        <script>
+            var x=document.getElementById("demo");
+            x.addEventListener("mouseover",display);
+            x.addEventListener("click",display1);
+            x.addEventListener("mouseout",display2);
+            function display()
+            {
+                document.getElementById("demo").innerHTML="mouseover"+"<br>"
+            }
+            function display1()
+            {
+                document.getElementById("demo").innerHTML="clicked"+"<br>"
+            }
+            function display2()
+            {
+                document.getElementById("demo").innerHTML="mouseout"+"<br>"
+            }
+        </script>
+    </body>
+</html>
