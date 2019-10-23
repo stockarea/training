@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="hello"></p>
+        <script>
+        var x={name:"balaji"};
+        var y=JSON.stringify(x);
+        localStorage.setItem("test",y);
+        var text=localStorage.getItem("test");
+        var z=JSON.parse(text);
+        document.getElementById("hello").innerHTML=z.name;
+        </script>
+    </body>
+</html>
