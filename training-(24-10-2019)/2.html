@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="demo">hello</p>
+        <button onclick="hello()">click</button>
+        <script>
+            function hello(){
+            var x=new XMLHttpRequest()
+            x.onreadystatechange=function()
+            {
+                if(this.readyState==4&&this.status==200){
+                    var y=JSON.parse(this.responseText);
+                    document.getElementById("demo").innerHTML=y.name;
+                }
+           
+            };
+            x.open("GET","1.php",true);
+            x.send();
+            }
+        </script>
+    </body>
+</html>
