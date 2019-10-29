@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <body>
+            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+            <input type="text" placeholder="enter the id" id="todoId"/>
+            <button onclick="hello()">get it</button>
+            <p id="demo"></p>
+            <script>
+
+                function hello()
+                {
+                    var x=document.getElementById("demo");
+                    var y=document.getElementById("todoId").value;
+                    x.innerHTML= '';
+                    axios.get('http://jsonplaceholder.typicode.com/todos',{
+                        params:{
+                            id:y
+                        }
+                    })
+                    .then (function (response){
+                        x.innerHTML=success(response);
+                    })
+                    .catch (function (error){
+                        x.innerHTML=fail(error);
+                    });
+                }
+                function success(response){
+                return '<h4>result</h4>'+
+
+                '<p>'+JSON.stringify(response.data,null,'\n')+'</p>'+'<br>';
+            }
+            function  fail(error){
+                return '<h4>result</h4>'+
+
+                '<p>'+JSON.stringify(error.data,null,'\n')+'</p>';
+            }
+            </script>
+    </body>
+</html>

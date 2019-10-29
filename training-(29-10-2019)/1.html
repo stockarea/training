@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <div id="demo"></div>
+        <button onclick="hello()">try it</button>
+        <script>
+
+            function hello()
+            {
+                var x=document.getElementById("demo");
+                x.innerHTML= '';
+                axios.get('http://jsonplaceholder.typicode.com/todos')
+                .then (function (response){
+                    x.innerHTML=success(response);
+                })
+                .catch (function (error){
+                    x.innerHTML=fail(error);
+                });
+            }
+            function success(response){
+                return '<h4>result</h4>'+
+
+                '<p>'+JSON.stringify(response.data,null,'\n')+'</p>'+'<br>';
+            }
+            function fail(error){
+                return '<h4>result</h4>'+
+
+                '<p>'+JSON.stringify(error.data,null,'\n')+'</p>';
+            }
+        </script>
+    </body>
+</html>
