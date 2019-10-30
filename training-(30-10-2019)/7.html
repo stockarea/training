@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <button onclick="setTimeout(hello,3000)">try</button>
+        <button onclick="setInterval(hi,1000)">time interval</button>
+        <p id="demo"></p>
+        <script>
+            function hello()
+            {
+             alert("hello");   
+            }
+            function hi()
+            {
+                var x=new Date();
+                document.getElementById("demo").innerHTML=x.toLocaleTimeString();
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="one"></p>
+        <p id="two"></p>
+        <p id="three"></p>
+        <p id="four"></p>
+        <input type="button" value="move to" onclick="hello()">
+        <script>
+            document.getElementById("one").innerHTML=window.location.href;
+            document.getElementById("two").innerHTML=window.location.protocol;
+            document.getElementById("three").innerHTML=window.location.pathname;
+            document.getElementById("four").innerHTML=window.location.port;
+          function hello(){
+              window.location.assign("https://www.youtube.com/")
+          }  
+        </script>
+    </body>
+</html>
