@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+           .square{
+        
+               background-color: green;
+               width:10%;
+               float:left;
+               padding-bottom: 10%;
+               margin: 5%;
+           } 
+            </style>
+
+    </head>
+    <body>
+        <button onclick="hello()">try it</button>
+        <button >change it</button>
+        <div id="container">
+            <div class="square" id="hi" ></div>
+            <div class="square"id="print" ></div>
+        </div>
+        <script>
+            function hello(){
+                var r=Math.floor(Math.random()*256);
+                var g=Math.floor(Math.random()*256);
+                var b=Math.floor(Math.random()*256);
+                var color="background: rgb("+r+","+g+","+b+" )";
+                document.getElementById("hi").style=color;
+                document.getElementById("print").style=color;
+            }
+
+            var a=["#FF0000","#0000FF"];
+            var i=0;
+            document.querySelector("button").addEventListener("click",function(){
+                i=i<x.length ? ++i : 0 ;
+                document.getElementById("print").style=x[i];
+            })
+        </script>
+    </body>
+</html>
