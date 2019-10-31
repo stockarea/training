@@ -1,5 +1,5 @@
 @extends('layout')
 
 @section('content')
-<h1> gfghftdtrtrd</h1>
+<h1> My First Laravel</h1>
 @endsection
