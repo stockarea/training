@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <body>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <button>click</button><br><br>
+            <div style="height: 150px; width: 150px; background: blue; position: absolute;"></div>
+            <script>
+                $(document).ready(function(){
+                    $("button").click(function(){
+                        var x=$("div");
+                        x.animate({height:'300px'},"slow");
+                        x.animate({width:'300px'},"slow");
+                        x.animate({height:"150px"},"slow");
+                        x.animate({width:"150px"},"slow");
+                    });
+                });
+            </script>
+    </body>
+</html>

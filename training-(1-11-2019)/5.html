@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <body>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <p id="p1">balaji</p>
+            <p id="p2">arun</p>
+            <p id="p3">company</p>
+            <button>click</button>
+            <script>
+                $(document).ready(function(){
+                    $("button").click(function(){
+                        $("#p1").fadeToggle();
+                        $("#p2").fadeTo("slow",0.2);
+                        $("#p3").fadeIn(3000);
+                    });
+                });
+            </script>
+    </body>
+</html>
