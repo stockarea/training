@@ -5,9 +5,12 @@
 	</title>
 </head>
 <body>
-	<h1>Ellipallan</h1>
+	<h1>Laraprojects</h1>
 @foreach ($projects as $project)
-<li>{{$project->title }}</li>
+<li>
+<a href="/projects/{{ $project->id }}">
+	{{$project->title }}</li>
+	</a>
 @endforeach
 </body>
 </html>
