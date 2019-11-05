@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCvsTable extends Migration
+class CreateTasksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateCvsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cvs', function (Blueprint $table) {
+        Schema::create('tasks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('profile_id');
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->text('education');
-            $table->text('hobies');
+             $table->unsignedInteger('profile_id');
+            $table->string('description');
+            $table->boolean('completed')->default(false);
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateCvsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cvs');
+        Schema::dropIfExists('tasks');
     }
 }
