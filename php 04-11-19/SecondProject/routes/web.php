@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/projects','ProjectController@index');
+Route::post('/projects','ProjectController@store');
+Route::get('/projects/create','ProjectController@create');
+Route::get('/projects/{profile}','ProjectController@show');
+Route::get('/projects/{profile}/edit', 'ProjectController@edit');
+Route::patch('projects/{profile}','ProjectController@update');
+Route::delete('projects/{profile}','ProjectController@destroy');
