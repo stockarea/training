@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 
 class ProjectTasksController extends Controller
 {
+
+
 public function store(Profile $profile)
 {
 $attributes = request()->validate(['description' => 'required']);
@@ -17,9 +19,11 @@ $profile->addTask($attributes);
 
   public function update(Task $task)
   {
-  $task->update ([
-  	'completed' => request()->has(completed)]);
-
+  // $task->update ([
+  // 	'completed' => request()->has('completed')
+  // ]);
+$method = request()->has('completed')? 'complete' : 'incomplete';
+$task->$method();
   return back(); 
   }
 }
