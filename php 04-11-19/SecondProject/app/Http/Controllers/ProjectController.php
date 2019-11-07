@@ -7,10 +7,18 @@ use App\Profile;
 
 class ProjectController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+    }
+
      public function index()
     {
-    
-    	$profiles = Profile::all();
+        
+       
+
+    	$profiles = Profile::where('user_id', auth()->id())->get();
 
 
     	return view('projects.index',compact('profiles'));
@@ -23,8 +31,9 @@ class ProjectController extends Controller
 
      public function show(Profile $profile)
      {
+     	// abort_unless(auth()->user()->owns($profile),403);
      	
-     	
+        $this->authorize('view', $project);
      	return view('projects.show',compact('profile'));
      }
        public function edit(Profile $profile)
@@ -54,6 +63,9 @@ class ProjectController extends Controller
     		'name' => ['required', 'min:5'] ,
     		'description' => ['required', 'min:6']
     	]));
+   
+   Profile::create($attributes + ['user-id' => auth()->id()]);
+
     		return redirect('/projects');
     }
 

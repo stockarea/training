@@ -26,3 +26,6 @@ Route::delete('projects/{profile}','ProjectController@destroy');
 Route::post('/projects/{profile}/tasks','ProjectTasksController@store');
 Route::post('/completed-tasks/{task}','CompletedTasksController@store');
 Route::delete('/completed-tasks/{task}','CompletedTasksController@destory');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
