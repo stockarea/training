@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Profile;
+use App\mail\ProfileCreated;
 
 class ProjectController extends Controller
 {
@@ -32,8 +33,12 @@ class ProjectController extends Controller
      public function show(Profile $profile)
      {
      	// abort_unless(auth()->user()->owns($profile),403);
-     	
-        $this->authorize('view', $project);
+    /*    if (\Gate::denies('update, $profile'))
+        {
+            abort(403);
+        }*/ 
+
+       $this->authorize('view', $profile);
      	return view('projects.show',compact('profile'));
      }
        public function edit(Profile $profile)
@@ -59,12 +64,16 @@ class ProjectController extends Controller
       
     public function store()
     { 
-    	Profile::create(request()->validate([
+    	$attributes = (request()->validate([
     		'name' => ['required', 'min:5'] ,
     		'description' => ['required', 'min:6']
     	]));
    
-   Profile::create($attributes + ['user-id' => auth()->id()]);
+   $attributes['user_id'] = auth()->id();
+  $profile = Profile::create($attributes);
+\Mail::to('karthick@stockarea')->send(
+    new ProfileCreated($profile)
+);
 
     		return redirect('/projects');
     }
