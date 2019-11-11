@@ -135,7 +135,7 @@ return [
     */
 
     'providers' => [
-
+        willvincent\Rateable\RateableServiceProvider::class,
         /*
          * Laravel Framework Service Providers...
          */

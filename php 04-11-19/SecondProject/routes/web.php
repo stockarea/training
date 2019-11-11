@@ -21,7 +21,7 @@ Route::get('/projects/{profile}','ProjectController@show');
 Route::get('/projects/{profile}/edit', 'ProjectController@edit');
 Route::patch('projects/{profile}','ProjectController@update');
 Route::delete('projects/{profile}','ProjectController@destroy');
-
+Route::post('/projects','ProjectController@ratin');
 
 Route::post('/projects/{profile}/tasks','ProjectTasksController@store');
 Route::post('/completed-tasks/{task}','CompletedTasksController@store');

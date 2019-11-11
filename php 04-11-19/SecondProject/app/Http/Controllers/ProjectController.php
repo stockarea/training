@@ -38,7 +38,7 @@ class ProjectController extends Controller
             abort(403);
         }*/ 
 
-       $this->authorize('view', $profile);
+      // $this->authorize('view', $profile);
      	return view('projects.show',compact('profile'));
      }
        public function edit(Profile $profile)
@@ -76,6 +76,17 @@ class ProjectController extends Controller
 );
 
     		return redirect('/projects');
+    }
+
+    public function ratin(Request $request)
+    {
+     request()->validate(['rate' => 'required']);
+     $profile = Profile::find($request->id);
+     $rating = new \willvincent\Rateable\Rating;
+     $rating->rating = $request->rate;
+     $rating->user_id = auth()->user()->id;
+     $profile->ratings()->save($rating);
+     return redirect('/projects');
     }
 
 }

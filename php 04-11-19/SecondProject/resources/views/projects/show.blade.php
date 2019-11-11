@@ -3,10 +3,13 @@
 @section('content')
 <h1 class="title">{{ $profile->name }}</h1>
 <h2 class="">{{ $profile->description }}</h2>
+ @auth
+        <p>You are logged in as {{ Auth::user()->name }}!</p>
+  
 <p>
 	<a href="/projects/{{ $profile->id }}/edit">Edit</a>
 </p>
-
+ @endauth
 @if ($profile->tasks->count())
 
 <div>

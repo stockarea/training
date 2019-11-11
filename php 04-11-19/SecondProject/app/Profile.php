@@ -3,11 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use willvincent\Rateable\Rateable;
 class Profile extends Model
 {
     protected $guarded = [];
 
+    use Rateable;
     public function tasks()
     {
     	return $this->hasMany(Task::class);
